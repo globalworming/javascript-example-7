@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spread operator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+</head>
+<body onload="runScript(); RunTest.test2()">
+<h1>spread operator</h1>
+spreads any iterables, so converting iterables to arrays is easy
+<pre>
+<code class="language-javascript">
+const map = new Map([["thunder", "lightning"],["fire","ice"]]);
+const keys = [...map.keys()]
+console.log(keys)
+const values = [...map.values()]
+console.log(values)
+
+// list of unique entries by using new Set()
+const entries = ["apple", "banana", "grape", "banana"]
+console.log([...new Set(entries)])
+
+// array of DOM elements
+const errorMessageNodes = [...document.getElementsByClassName("error")]
+console.log(errorMessageNodes)
+
+// characters in a string
+console.log([..."hello"])
+</code>
+
+concatenate arrays
+<code class="language-javascript">
+    const lat = ["N", "S"]
+    const long = ["E", "W"]
+    const directions = [...lat, ...long]
+    console.log(directions)
+    // -> [ 'N', 'S', 'E', 'W' ]
+</code>
+
+copy arrays
+<code class="language-javascript">
+   const source = [{"number" : 1}, {"number" : 2}, {"number" : 3}]
+    const copy = [...source]
+    console.log(copy)
+    // -> [ 1, 2, 3 ]
+
+    source[0].number += 1 // also changes entry of copy
+    console.log(copy)
+
+    source[0] = undefined // but changing one array doesn't change the other
+    console.log(source)
+    console.log(copy)
+</code>
+
+
+</pre>
+
+<div id="displayOnSuccess">
+    <a href="./fixme">FIXME next classroom</a>
+</div>
+
+<!-- fancy code highlighting -->
+<script>hljs.highlightAll();</script>
+</body>
+</html>
